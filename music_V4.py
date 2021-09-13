@@ -68,16 +68,15 @@ def play_music():
             mfile = random_file()
             pygame.mixer_music.load(mfile)
             pygame.mixer_music.play(1)
-        for event in pygame.event.get():
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    mfile = random_file()
-                    pygame.mixer_music.load(mfile)
-                    pygame.mixer_music.play(1)
-                else:
-                    break
+        
+        elif pygame.event.get() == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                mfile = random_file()
+                pygame.mixer_music.load(mfile)
+                pygame.mixer_music.play(1)
             else:
-                break
+                continue
+            
 #close the music
 def stop_music():
     print("stop the music")
